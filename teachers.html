@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-1 Academy -- Pengajar Kami</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container"><a class="navbar-brand" href="index.html">JS-1 Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="programs.html">Program</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="teachers.html">Pengajar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-5 pt-5">
+        <header class="text-center mb-3"><h1>Tim Pengajar Unggulan Kami</h1><p>Didedikasikan untuk membimbing Anda meraih kesuksesan.</p></header>
+        <div class="row">
+            <div class="col-lg- col-md-6 mb-4">
+                <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#teacherModal1">
+                    <img src="Pengajar/Stevania, S.Kom., M.Pd..png" alt="Pengajar 1">
+                    <h5>Stevania, S.Kom., M.Pd.</h5>
+                    <p class="text-muted">Kepala Program Matematika</p>
+                </div>
+            </div>
+            <div class="col-lg col-md-6 mb-4">
+                <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#teacherModal2">
+                    <img src="Pengajar/Jenisa, S.Kom..jpg" alt="Pengajar 2">
+                    <h5>Jenisa Lauren, S.Kom.</h5>
+                    <p class="text-muted">Kepala Program Teknologi</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center"><p>&copy; 2024 || JS-1 Academy</p></footer>
+    <div class="modal fade" id="teacherModal1" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Stevania, S.Kom., M.Pd.</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Pengalaman mengajar lebih dari 10 tahun. Spesialis dalam matematika kompetisi.</p></div></div></div></div>
+    <div class="modal fade" id="teacherModal2" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Jenisa Lauren, S.Kom.</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Lulusan terbaik Universitas Mikroskil. Membuat konsep pembelajaran terkait analisis hitungan & logika menjadi akurat</p></div></div></div></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

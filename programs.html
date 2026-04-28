@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS-1 Academy -- Program Kami</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #registration-details {
+            display: none;
+            border-top: 2px solid #dee2e6;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .details-card {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container"><a class="navbar-brand" href="index.html">JS-1 Academy</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="programs.html">Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="teachers.html">Pengajar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Artikel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-5 pt-5">
+        <header class="text-center mb-5">
+            <h1>Program Unggulan Kami</h1>
+            <p class="lead">Pilih program yang paling sesuai dengan kebutuhan belajarmu. <strong>Klik kartu untuk melihat detail.</strong></p>
+        </header>
+        <section class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card program-card" data-program="sd">
+                    <img src="/Program/SD.jpg" class="card-img-top" alt="Program SD">
+                    <div class="card-body">
+                        <h5 class="card-title">Bimbingan SD</h5>
+                        <p class="card-text">Program intensif untuk membangun fondasi belajar yang kuat bagi siswa SD.</p>
+                        <ul>
+                            <li>Guru profesional</li>
+                            <li>Modul lengkap</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card program-card" data-program="smp">
+                    <img src="/Program/SMP.jpg" class="card-img-top" alt="Program SMP">
+                    <div class="card-body">
+                        <h5 class="card-title">Bimbingan SMP</h5>
+                        <p class="card-text">Persiapan maksimal menghadapi ujian dan naik kelas untuk hasil memuaskan.</p>
+                        <ul>
+                            <li>Fokus pemahaman konsep</li>
+                            <li>Drilling soal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card program-card" data-program="sma">
+                    <img src="/Program/SMA.jpg" class="card-img-top" alt="Program SMA">
+                    <div class="card-body">
+                        <h5 class="card-title">Bimbingan SMA</h5>
+                        <p class="card-text">Menguasai materi pelajaran sekolah dan persiapan untuk jenjang lebih tinggi.</p>
+                        <ul>
+                            <li>Materi komprehensif</li>
+                            <li>Tryout sekolah</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card program-card" data-program="utbk">
+                    <img src="/Program/UTBK.jpg" class="card-img-top" alt="Program UTBK">
+                    <div class="card-body">
+                        <h5 class="card-title">Bimbingan UTBK</h5>
+                        <p class="card-text">Program super intensif untuk sukses UTBK dan masuk Perguruan Tinggi Negeri.</p>
+                        <ul>
+                            <li>Materi prediktif</li>
+                            <li>Simulasi tes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-5">
+            <h2 class="text-center mb-4">Jadwal & Biaya</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead class="table-dark"><tr><th>Program</th><th>Hari</th><th>Waktu</th><th>Biaya (/bulan)</th></tr></thead>
+                    <tbody>
+                        <tr><td>SD Kelas 4-6</td><td>Sabtu & Minggu</td><td>08:00 - 11:00 WIB</td><td>Rp 470.000</td></tr>
+                        <tr><td>SMP Kelas 7-9</td><td>Selasa & Kamis</td><td>13:00 - 15:00 WIB</td><td>Rp 580.000</td></tr>
+                        <tr><td>SMA Kelas 10-11</td><td>Senin & Rabu</td><td>15:00 - 17:00 WIB</td><td>Rp 630.000</td></tr>
+                        <tr><td>SMA (UTBK)</td><td>Selasa, Jum'at, Sabtu</td><td>17:00 - 19:00 WIB</td><td>Rp 890.000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Area Detail Estimasi Pendaftaran (Awalnya Tersembunyi) -->
+        <section id="registration-details" class="mt-5">
+            <div class="details-card">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3 id="details-title" class="mb-0"></h3>
+                    <button id="close-details" class="btn btn-sm btn-outline-secondary"><i class="bi bi-x-lg"></i> Tutup</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p id="details-description"></p>
+                        <h5 class="mt-3">Keunggulan Program:</h5>
+                        <ul id="details-features"></ul>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        <h4>Biaya Pendaftaran</h4>
+                        <p class="display-6 text-primary fw-bold" id="details-price"></p>
+                        <hr>
+                        <p><i class="bi bi-calendar-week"></i> <strong>Jadwal:</strong></p>
+                        <p id="details-schedule"></p>
+                        <!-- PERUBAHAN: Tombol diubah menjadi link WhatsApp -->
+                        <a href="https://wa.me/6285260394617" class="btn btn-success w-100 mt-3" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Daftar Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <p>&copy; 2024 || JS-1 Academy</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Data program disimpan dalam objek JavaScript
+        const programDetails = {
+            sd: {
+                title: 'Estimasi Pendaftaran: Bimbingan SD',
+                level: 'SD Kelas 4-6',
+                schedule: 'Sabtu & Minggu, 08:00 - 11:00 WIB',
+                price: 'Rp 470.000',
+                description: 'Program intensif untuk membangun fondasi belajar yang kuat bagi siswa SD. Kami fokus pada pemahaman konsep dasar yang akan menjadi bekal utama mereka di jenjang berikutnya.',
+                features: ['Guru profesional dan berpengalaman', 'Modul belajar lengkap dan menarik', 'Evaluasi bulanan untuk monitoring perkembangan', 'Fokus pada pemahaman konsep dasar']
+            },
+            smp: {
+                title: 'Estimasi Pendaftaran: Bimbingan SMP',
+                level: 'SMP Kelas 7-9',
+                schedule: 'Selasa & Kamis, 13:00 - 15:00 WIB',
+                price: 'Rp 580.000',
+                description: 'Program persiapan maksimal untuk menghadapi berbagai ujian sekolah dan meningkatkan pemahaman materi agar naik kelas dengan hasil yang memuaskan.',
+                features: ['Fokus pada pemahaman konsep', 'Drilling soal dan pembahasan tuntas', 'Strategi mengerjakan soal efektif', 'Persiapan untuk Ujian Sekolah']
+            },
+            sma: {
+                title: 'Estimasi Pendaftaran: Bimbingan SMA',
+                level: 'SMA Kelas 10-11',
+                schedule: 'Senin & Rabu, 15:00 - 17:00 WIB',
+                price: 'Rp 630.000',
+                description: 'Program untuk menguasai seluruh materi pelajaran sekolah, membantu meningkatkan nilai rapor, dan mempersiapkan diri menghadapi ujian akhir sekolah.',
+                features: ['Materi pelajaran komprehensif', 'Tryout sekolah berkala', 'Bimbingan untuk tugas dan PR', 'Persiapan menuju UTBK/SNMPTN']
+            },
+            utbk: {
+                title: 'Estimasi Pendaftaran: Bimbingan UTBK',
+                level: 'SMA Kelas 12 / Lulusan',
+                schedule: 'Selasa, Jum\'at, Sabtu, 17:00 - 19:00 WIB',
+                price: 'Rp 890.000',
+                description: 'Program super intensif yang dirancang khusus untuk kesuksesan Anda dalam menghadapi UTBK dan membuka pintu masuk ke Perguruan Tinggi Negeri impian.',
+                features: ['Materi prediktif berdasarkan analisis soal tahun lalu', 'Simulasi tes dengan sistem yang mirip UTBK asli', 'Pembahasan soal tuntas oleh pengajar ahli', 'Strategi dan manajemen waktu selama tes']
+            }
+        };
+
+        // Mengambil elemen-elemen dari DOM
+        const programCards = document.querySelectorAll('.program-card');
+        const detailsSection = document.getElementById('registration-details');
+        const closeBtn = document.getElementById('close-details');
+
+        // Fungsi untuk menampilkan detail
+        function showDetails(programKey) {
+            const details = programDetails[programKey];
+            if (!details) return;
+
+            // Mengisi konten detail secara dinamis
+            document.getElementById('details-title').textContent = details.title;
+            document.getElementById('details-description').textContent = details.description;
+            document.getElementById('details-price').textContent = details.price;
+            document.getElementById('details-schedule').textContent = details.schedule;
+
+            const featuresList = document.getElementById('details-features');
+            featuresList.innerHTML = ''; // Kosongkan dulu
+            details.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = `<i class="bi bi-check-circle-fill text-success me-2"></i>${feature}`;
+                featuresList.appendChild(li);
+            });
+
+            // Tampilkan section dan gulir ke bawah
+            detailsSection.style.display = 'block';
+            detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Event Listener untuk setiap kartu program
+        programCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const programKey = card.getAttribute('data-program');
+                showDetails(programKey);
+            });
+        });
+
+        // Event Listener untuk tombol tutup
+        closeBtn.addEventListener('click', () => {
+            detailsSection.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
