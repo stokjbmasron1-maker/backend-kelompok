@@ -48,77 +48,18 @@
             <h1>Program Unggulan Kami</h1>
             <p class="lead">Pilih program yang paling sesuai dengan kebutuhan belajarmu. <strong>Klik kartu untuk melihat detail.</strong></p>
         </header>
-        <section class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card program-card" data-program="sd">
-                    <img src="/Program/SD.jpg" class="card-img-top" alt="Program SD">
-                    <div class="card-body">
-                        <h5 class="card-title">Bimbingan SD</h5>
-                        <p class="card-text">Program intensif untuk membangun fondasi belajar yang kuat bagi siswa SD.</p>
-                        <ul>
-                            <li>Guru profesional</li>
-                            <li>Modul lengkap</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card program-card" data-program="smp">
-                    <img src="/Program/SMP.jpg" class="card-img-top" alt="Program SMP">
-                    <div class="card-body">
-                        <h5 class="card-title">Bimbingan SMP</h5>
-                        <p class="card-text">Persiapan maksimal menghadapi ujian dan naik kelas untuk hasil memuaskan.</p>
-                        <ul>
-                            <li>Fokus pemahaman konsep</li>
-                            <li>Drilling soal</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card program-card" data-program="sma">
-                    <img src="/Program/SMA.jpg" class="card-img-top" alt="Program SMA">
-                    <div class="card-body">
-                        <h5 class="card-title">Bimbingan SMA</h5>
-                        <p class="card-text">Menguasai materi pelajaran sekolah dan persiapan untuk jenjang lebih tinggi.</p>
-                        <ul>
-                            <li>Materi komprehensif</li>
-                            <li>Tryout sekolah</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card program-card" data-program="utbk">
-                    <img src="/Program/UTBK.jpg" class="card-img-top" alt="Program UTBK">
-                    <div class="card-body">
-                        <h5 class="card-title">Bimbingan UTBK</h5>
-                        <p class="card-text">Program super intensif untuk sukses UTBK dan masuk Perguruan Tinggi Negeri.</p>
-                        <ul>
-                            <li>Materi prediktif</li>
-                            <li>Simulasi tes</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <section class="row" id="program-container"></section>
 
         <section class="mt-5">
             <h2 class="text-center mb-4">Jadwal & Biaya</h2>
             <div class="table-responsive">
                 <table class="table table-striped table-hover align-middle">
                     <thead class="table-dark"><tr><th>Program</th><th>Hari</th><th>Waktu</th><th>Biaya (/bulan)</th></tr></thead>
-                    <tbody>
-                        <tr><td>SD Kelas 4-6</td><td>Sabtu & Minggu</td><td>08:00 - 11:00 WIB</td><td>Rp 470.000</td></tr>
-                        <tr><td>SMP Kelas 7-9</td><td>Selasa & Kamis</td><td>13:00 - 15:00 WIB</td><td>Rp 580.000</td></tr>
-                        <tr><td>SMA Kelas 10-11</td><td>Senin & Rabu</td><td>15:00 - 17:00 WIB</td><td>Rp 630.000</td></tr>
-                        <tr><td>SMA (UTBK)</td><td>Selasa, Jum'at, Sabtu</td><td>17:00 - 19:00 WIB</td><td>Rp 890.000</td></tr>
-                    </tbody>
+                    <tbody id="schedule-container"></tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Area Detail Estimasi Pendaftaran (Awalnya Tersembunyi) -->
         <section id="registration-details" class="mt-5">
             <div class="details-card">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -137,7 +78,6 @@
                         <hr>
                         <p><i class="bi bi-calendar-week"></i> <strong>Jadwal:</strong></p>
                         <p id="details-schedule"></p>
-                        <!-- PERUBAHAN: Tombol diubah menjadi link WhatsApp -->
                         <a href="https://wa.me/6285260394617" class="btn btn-success w-100 mt-3" target="_blank">
                             <i class="bi bi-whatsapp"></i> Daftar Sekarang
                         </a>
@@ -151,85 +91,58 @@
         <p>&copy; 2024 || JS-1 Academy</p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // Data program disimpan dalam objek JavaScript
-        const programDetails = {
-            sd: {
-                title: 'Estimasi Pendaftaran: Bimbingan SD',
-                level: 'SD Kelas 4-6',
-                schedule: 'Sabtu & Minggu, 08:00 - 11:00 WIB',
-                price: 'Rp 470.000',
-                description: 'Program intensif untuk membangun fondasi belajar yang kuat bagi siswa SD. Kami fokus pada pemahaman konsep dasar yang akan menjadi bekal utama mereka di jenjang berikutnya.',
-                features: ['Guru profesional dan berpengalaman', 'Modul belajar lengkap dan menarik', 'Evaluasi bulanan untuk monitoring perkembangan', 'Fokus pada pemahaman konsep dasar']
-            },
-            smp: {
-                title: 'Estimasi Pendaftaran: Bimbingan SMP',
-                level: 'SMP Kelas 7-9',
-                schedule: 'Selasa & Kamis, 13:00 - 15:00 WIB',
-                price: 'Rp 580.000',
-                description: 'Program persiapan maksimal untuk menghadapi berbagai ujian sekolah dan meningkatkan pemahaman materi agar naik kelas dengan hasil yang memuaskan.',
-                features: ['Fokus pada pemahaman konsep', 'Drilling soal dan pembahasan tuntas', 'Strategi mengerjakan soal efektif', 'Persiapan untuk Ujian Sekolah']
-            },
-            sma: {
-                title: 'Estimasi Pendaftaran: Bimbingan SMA',
-                level: 'SMA Kelas 10-11',
-                schedule: 'Senin & Rabu, 15:00 - 17:00 WIB',
-                price: 'Rp 630.000',
-                description: 'Program untuk menguasai seluruh materi pelajaran sekolah, membantu meningkatkan nilai rapor, dan mempersiapkan diri menghadapi ujian akhir sekolah.',
-                features: ['Materi pelajaran komprehensif', 'Tryout sekolah berkala', 'Bimbingan untuk tugas dan PR', 'Persiapan menuju UTBK/SNMPTN']
-            },
-            utbk: {
-                title: 'Estimasi Pendaftaran: Bimbingan UTBK',
-                level: 'SMA Kelas 12 / Lulusan',
-                schedule: 'Selasa, Jum\'at, Sabtu, 17:00 - 19:00 WIB',
-                price: 'Rp 890.000',
-                description: 'Program super intensif yang dirancang khusus untuk kesuksesan Anda dalam menghadapi UTBK dan membuka pintu masuk ke Perguruan Tinggi Negeri impian.',
-                features: ['Materi prediktif berdasarkan analisis soal tahun lalu', 'Simulasi tes dengan sistem yang mirip UTBK asli', 'Pembahasan soal tuntas oleh pengajar ahli', 'Strategi dan manajemen waktu selama tes']
-            }
-        };
-
-        // Mengambil elemen-elemen dari DOM
-        const programCards = document.querySelectorAll('.program-card');
+        const API_URL = 'http://localhost:3000/api';
         const detailsSection = document.getElementById('registration-details');
-        const closeBtn = document.getElementById('close-details');
 
-        // Fungsi untuk menampilkan detail
-        function showDetails(programKey) {
-            const details = programDetails[programKey];
-            if (!details) return;
+        function formatHarga(price) {
+            return 'Rp ' + Number(price).toLocaleString('id-ID');
+        }
 
-            // Mengisi konten detail secara dinamis
-            document.getElementById('details-title').textContent = details.title;
-            document.getElementById('details-description').textContent = details.description;
-            document.getElementById('details-price').textContent = details.price;
-            document.getElementById('details-schedule').textContent = details.schedule;
-
+        function showDetails(program) {
+            document.getElementById('details-title').textContent = program.name;
+            document.getElementById('details-description').textContent = program.description;
+            document.getElementById('details-price').textContent = formatHarga(program.price);
+            document.getElementById('details-schedule').textContent = `${program.schedule_days}, ${program.schedule_time}`;
             const featuresList = document.getElementById('details-features');
-            featuresList.innerHTML = ''; // Kosongkan dulu
-            details.features.forEach(feature => {
-                const li = document.createElement('li');
-                li.innerHTML = `<i class="bi bi-check-circle-fill text-success me-2"></i>${feature}`;
-                featuresList.appendChild(li);
-            });
-
-            // Tampilkan section dan gulir ke bawah
+            featuresList.innerHTML = (program.features || []).map(f =>
+                `<li><i class="bi bi-check-circle-fill text-success me-2"></i>${f.feature_text}</li>`
+            ).join('');
             detailsSection.style.display = 'block';
             detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // Event Listener untuk setiap kartu program
-        programCards.forEach(card => {
-            card.addEventListener('click', () => {
-                const programKey = card.getAttribute('data-program');
-                showDetails(programKey);
-            });
-        });
+        async function loadPrograms() {
+            const res = await fetch(`${API_URL}/programs`);
+            const programs = await res.json();
 
-        // Event Listener untuk tombol tutup
-        closeBtn.addEventListener('click', () => {
+            document.getElementById('program-container').innerHTML = programs.map(p => `
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card program-card" onclick='showDetails(${JSON.stringify(p)})'>
+                        <img src="${p.image_path || 'Program/SD.jpg'}" class="card-img-top" alt="${p.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${p.name}</h5>
+                            <p class="card-text">${p.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('schedule-container').innerHTML = programs.map(p => `
+                <tr>
+                    <td>${p.name}</td>
+                    <td>${p.schedule_days}</td>
+                    <td>${p.schedule_time}</td>
+                    <td>${formatHarga(p.price)}</td>
+                </tr>
+            `).join('');
+        }
+
+        document.getElementById('close-details').addEventListener('click', () => {
             detailsSection.style.display = 'none';
         });
+
+        loadPrograms();
     </script>
 </body>
 </html>
