@@ -27,35 +27,37 @@
     </nav>
     <main class="container my-5 pt-5">
         <header class="text-center mb-5"><h1>Tips & Artikel Pendidikan</h1><p>Dapatkan informasi terbaru seputar dunia pendidikan.</p></header>
-        <div class="blog-post-item">
-            <img src="Artikel/5 Tips Efektif Belajar Matematika.jpg" alt="Artikel 1">
-            <div class="content">
-                <h3>5 Tips Efektif Belajar Matematika</h3>
-                <p class="text-muted">Oleh Stevania, S.Kom., M.Pd. | 15 Oktober 2020</p>
-                <p>Matematika seringkali menjadi momok menakutkan bagi sebagian siswa. Namun, dengan metode yang tepat, siapa pun bisa menguasainya...</p>
-                <a href="blog-1.html" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
-            </div>
-        </div>
-        <div class="blog-post-item">
-            <img src="Artikel/Menghadapi UTBK Strategi Jitu Agar Tidak Grogi.jpg" alt="Artikel 2">
-            <div class="content">
-                <h3>Menghadapi UTBK: Strategi Jitu Agar Tidak Grogi</h3>
-                <p class="text-muted">Oleh Tim JS-1 Academy | 29 Desember 2024</p>
-                <p>Tekanan saat ujian UTBK bisa sangat besar. Kunci utama adalah persiapan matang dan manajemen stres yang baik...</p>
-                <a href="blog-2.html" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
-            </div>
-        </div>
-        <div class="blog-post-item">
-            <img src="Artikel/Pentingnya Memilih Jurusan Sesuai Minat dan Bakat.jpg" alt="Artikel 3">
-            <div class="content">
-                <h3>Pentingnya Memilih Jurusan Sesuai Minat dan Bakat</h3>
-                <p class="text-muted">Oleh Jenisa Lauren, S.Kom. | 5 Februari 2025</p>
-                <p>Memilih jurusan kuliah adalah salah satu keputusan terpenting dalam hidup. Jangan asal ikut teman, pilih yang sesuai dengan minat dan bakatmu...</p>
-                <a href="blog-3.html" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
-            </div>
-        </div>
+        <div id="artikel-container"></div>
     </main>
     <footer class="text-center"><p>&copy; 2024 || JS-1 Academy</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        function formatTanggal(dateStr) {
+            const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+            const d = new Date(dateStr);
+            return `${d.getDate()} ${bulan[d.getMonth()]} ${d.getFullYear()}`;
+        }
+
+        async function loadArtikel() {
+            const container = document.getElementById('artikel-container');
+            const res = await fetch(`${API_URL}/articles`);
+            const articles = await res.json();
+            container.innerHTML = articles.map((a, i) => `
+                <div class="blog-post-item">
+                    <img src="${a.image_path || 'Artikel/5 Tips Efektif Belajar Matematika.jpg'}" alt="${a.title}">
+                    <div class="content">
+                        <h3>${a.title}</h3>
+                        <p class="text-muted">Oleh ${a.author} | ${formatTanggal(a.published_date)}</p>
+                        <p>${a.preview}</p>
+                        <a href="blog-detail.html?id=${a.id}" class="btn btn-sm btn-outline-primary">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        loadArtikel();
+    </script>
 </body>
 </html>
