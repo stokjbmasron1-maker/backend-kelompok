@@ -27,26 +27,50 @@
     </nav>
     <main class="container my-5 pt-5">
         <header class="text-center mb-3"><h1>Tim Pengajar Unggulan Kami</h1><p>Didedikasikan untuk membimbing Anda meraih kesuksesan.</p></header>
-        <div class="row">
-            <div class="col-lg- col-md-6 mb-4">
-                <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#teacherModal1">
-                    <img src="Pengajar/Stevania, S.Kom., M.Pd..png" alt="Pengajar 1">
-                    <h5>Stevania, S.Kom., M.Pd.</h5>
-                    <p class="text-muted">Kepala Program Matematika</p>
-                </div>
-            </div>
-            <div class="col-lg col-md-6 mb-4">
-                <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#teacherModal2">
-                    <img src="Pengajar/Jenisa, S.Kom..jpg" alt="Pengajar 2">
-                    <h5>Jenisa Lauren, S.Kom.</h5>
-                    <p class="text-muted">Kepala Program Teknologi</p>
+        <div class="row" id="teacher-container"></div>
+        <div class="modal fade" id="teacherModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal-name"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-muted" id="modal-role"></p>
+                        <p id="modal-bio"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
     <footer class="text-center"><p>&copy; 2024 || JS-1 Academy</p></footer>
-    <div class="modal fade" id="teacherModal1" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Stevania, S.Kom., M.Pd.</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Pengalaman mengajar lebih dari 10 tahun. Spesialis dalam matematika kompetisi.</p></div></div></div></div>
-    <div class="modal fade" id="teacherModal2" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Jenisa Lauren, S.Kom.</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p>Lulusan terbaik Universitas Mikroskil. Membuat konsep pembelajaran terkait analisis hitungan & logika menjadi akurat</p></div></div></div></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const API_URL = 'http://localhost:3000/api';
+
+        async function loadTeachers() {
+            const res = await fetch(`${API_URL}/teachers`);
+            const teachers = await res.json();
+            const container = document.getElementById('teacher-container');
+            container.innerHTML = teachers.map(t => `
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="teacher-card" onclick="showModal(${t.id}, '${t.name} ${t.credentials || ''}', '${t.role || ''}', '${t.bio || ''}')">
+                        <img src="${t.image_path || 'Pengajar/Stevania, S.Kom., M.Pd..png'}" alt="${t.name}">
+                        <h5>${t.name}${t.credentials ? ', ' + t.credentials : ''}</h5>
+                        <p class="text-muted">${t.role || ''}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function showModal(id, name, role, bio) {
+            document.getElementById('modal-name').textContent = name;
+            document.getElementById('modal-role').textContent = role;
+            document.getElementById('modal-bio').textContent = bio;
+            new bootstrap.Modal(document.getElementById('teacherModal')).show();
+        }
+
+        loadTeachers();
+    </script>
 </body>
 </html>
